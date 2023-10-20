@@ -1,52 +1,66 @@
 #include <iostream>
 int main() {
 	setlocale(LC_ALL, "Russian");///*
-	std::cout << "Ââåäèòå A: ";
+	std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ A: ";
 	int a;
 	std::cin >> a;
-	std::cout << "Ââåäèòå B: ";
+	std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ B: ";
 	int b;
 	std::cin >> b;
-	std::cout << "Ââåäèòå C: ";
+	std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ C: ";
 	int c;
 	std::cin >> c;
 
-	// 1 ÷àñòü
-	if (a % b == 0) {
-		if (a > b) { std::cout <<"A>B, "<<  (a / b + c); }
-		else{ if (b < c) { std::cout <<"B<C, " << (a / b - c); } }
+	// 1 Ñ‡Ð°ÑÑ‚ÑŒ
+	if (a > 0 and c > 0 and b > 0) {
+		if (a % b == 0) {
+			if (a > b) { 
+				int d = a / b + c;
+				std::cout << "A>B, " << d; }
+			else { if (b < c) {
+				int e = a / b - c;
+				std::cout << "B<C, " << e; } }
+		}
+		else { 
+			int f = (a + b) * c;
+			std::cout << "A<=B, B>=C, " << f; }
 	}
-	else { std::cout <<"A<B, B>C, " << (a + b) * c; }
-
-	// 2 ÷àñòü
-	std::cout << "\nÊîä òîâàðà: ";
+	// 2 Ñ‡Ð°ÑÑ‚ÑŒ
+	std::cout << "\nÐšÐ¾Ð´ Ñ‚Ð¾Ð²Ð°Ñ€Ð°: ";
 	unsigned short n;
 	std::cin >> n;
 	switch (n) {
-	case 1:std::cout << "Íåôòü";
+	case 1:std::cout << "ÐÐµÑ„Ñ‚ÑŒ";
 		break;
-	case 25:std::cout << "Àâîêàäî";
+	case 25:std::cout << "ÐÐ²Ð¾ÐºÐ°Ð´Ð¾";
 		break;
-	case 30:std::cout << "Ñàõàð ðàôèíàä áûñòðîðàñòâîðèìûé";
+	case 30:std::cout << "Ð¡Ð°Ñ…Ð°Ñ€ Ñ€Ð°Ñ„Ð¸Ð½Ð°Ð´ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ñ€Ð°ÑÑ‚Ð²Ð¾Ñ€Ð¸Ð¼Ñ‹Ð¹";
 		break;
-	case 500:std::cout << "ßáëîêè";
+	case 500:std::cout << "Ð¯Ð±Ð»Ð¾ÐºÐ¸";
 		break;
-	case 645:std::cout << "Ïîìèäîðû";
+	case 645:std::cout << "ÐŸÐ¾Ð¼Ð¸Ð´Ð¾Ñ€Ñ‹";
 		break;
-	case 1966:std::cout << "Àïåëüñèíû";
+	case 1966:std::cout << "ÐÐ¿ÐµÐ»ÑŒÑÐ¸Ð½Ñ‹";
 		break;
-	case 4949:std::cout << "Êîëáàñà âàðåíàÿ äîêòîðñêàÿ";
+	case 4949:std::cout << "ÐšÐ¾Ð»Ð±Ð°ÑÐ° Ð²Ð°Ñ€ÐµÐ½Ð°Ñ Ð´Ð¾ÐºÑ‚Ð¾Ñ€ÑÐºÐ°Ñ";
 		break;
-	default:std::cout << "Ìû òàêèì íå òîðãóåì";
+	default:std::cout << "ÐœÑ‹ Ñ‚Ð°ÐºÐ¸Ð¼ Ð½Ðµ Ñ‚Ð¾Ñ€Ð³ÑƒÐµÐ¼";
+		break;
 	}
 	//*/
-	// Äîïîëíèòåëüíîå
-	std::cout << "\nÂâåäèòå X (1 èëè -1): ";
+	// Ð”Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ðµ
+	std::cout << "\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ X (1 Ð¸Ð»Ð¸ -1): ";
 	signed bool x;
 	std::cin >> x;
 	switch (x) {
 	case 1:std::cout << "Positive number";
 		break;
 	case -1:std::cout << "Negative number";
+
+
+	//ÑÐ²Ð¾Ñ‘
+		if (n == 1) {
+			std::cout << "Ð° Ð¿Ð¾Ñ‚Ð¾Ð¼ Ð²Ñ‹ Ð¿Ñ€Ð¾ÑÐ½ÑƒÐ»Ð¸ÑÑŒ";
+		}
 	}
 }
