@@ -13,8 +13,8 @@ bool starts_with3(int n) {
 int sum_digits(int n) {
 	int sum = 0;
 	while (n != 0) {
-		sum += n % 10;
-		n /= 10;
+		sum += abs(n) % 10;
+		n = abs(n) / 10;
 	}
 	return sum;
 }
@@ -25,13 +25,13 @@ int main() {
 	int mas[k];
 	int n;
 	bool flag = false;
-	std::cout << "Ââåäèòå äëèíó ïîñëåäîâàòåëüíîñòè: ";
+	std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¤Ã«Ã¨Ã­Ã³ Ã¯Ã®Ã±Ã«Ã¥Ã¤Ã®Ã¢Ã Ã²Ã¥Ã«Ã¼Ã­Ã®Ã±Ã²Ã¨: ";
 	std::cin >> n;
 	if ((n == 0) or (n > 19)) {
-		std::cout << "Íåïğàâèëüíî, ïîïğîáóé. åù¸. ğàç.";
+		std::cout << "ÃÃ¥Ã¯Ã°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã®, Ã¯Ã®Ã¯Ã°Ã®Ã¡Ã³Ã©. Ã¥Ã¹Â¸. Ã°Ã Ã§.";
 		return 1;
 	}
-	std::cout << "Ââåäèòå ÷èñëà" << std::endl;
+	std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã·Ã¨Ã±Ã«Ã " << std::endl;
 	for (int i = 0; i < n; i++) {
 		std::cin >> mas[i];
 	}
@@ -51,7 +51,7 @@ int main() {
 	}
 	std::cout << std::endl;
 
-	//2 óñëîâèå
+	//2 Ã³Ã±Ã«Ã®Ã¢Ã¨Ã¥
 	const short M = 9;
 	const short N = 9;
 	int matrix[M][N];
@@ -59,9 +59,9 @@ int main() {
 	short b;
 	short count_max = SHRT_MIN;
 	short count;
-	std::cout << "Ââåäèòå ğàçìåğ ìàòğèöû(M*N): " << std::endl;
+	std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã°Ã Ã§Ã¬Ã¥Ã° Ã¬Ã Ã²Ã°Ã¨Ã¶Ã»(M*N): " << std::endl;
 	std::cin >> a >> b;
-	std::cout << "Ââåäèòå ÷èñëà ìàòğèöû: " << std::endl;
+	std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã·Ã¨Ã±Ã«Ã  Ã¬Ã Ã²Ã°Ã¨Ã¶Ã»: " << std::endl;
 	for (short i = 0; i < a; i++)
 		for (short j = 0; j < b; j++)
 			std::cin >> matrix[i][j];
@@ -82,15 +82,15 @@ int main() {
 				matrix[i][j] = -1;
 		};
 	}
-	std::cout << "Âàøà ìàòğèöà: " << std::endl;
+	std::cout << "Ã‚Ã Ã¸Ã  Ã¬Ã Ã²Ã°Ã¨Ã¶Ã : " << std::endl;
 	for (short i = 0; i < a; i++) {
 		for (short j = 0; j < b; j++)
 			std::cout << matrix[i][j] << ' ';
 		std::cout << std::endl;
 	}
 	
-	// äîï
-	std::cout << "äîï" << std::endl;
+	// Ã¤Ã®Ã¯
+	std::cout << "Ã¤Ã®Ã¯" << std::endl;
 	if (flag)
 		for (short a = 0; a < n; a++)
 			for (short b = 0; b < n; b++)
