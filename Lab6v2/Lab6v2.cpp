@@ -1,5 +1,6 @@
 #include<iostream>
 #include<fstream>
+#include<stdlib.h>
 using namespace std;
 
 int main(){
@@ -18,7 +19,8 @@ int main(){
     cout<<(char)(168)<<" = 168\t\t"<<(char)(184)<<" = 184"<<endl;
 
     char arr[] = "бвгджзйклмнпрстфхцчшщ"; //лишние символы
-    char str[200] = "ѕроверка –аЅо“о—пќсќбЌо—т»";
+    char arr2[] = "бвгджзйклмнпрстфхцчшщЅ¬√ƒ∆«… ЋћЌ–ѕ—“‘’÷„Ўў";
+    char str[] = "ѕроверка –аЅо“о—пќсќбЌо—т»";
     char str_tmp[100] = ""; //строка-ответ
     int i = 0; 
     int i_tmp = 0;
@@ -27,13 +29,13 @@ int main(){
         cin>>str;
     }
     cout<<str<<" --> "; //вывод измен€емой строки
-
     while(str[i] != '\0'){ //поиск согласных
         bool fl = false;
         int len = 0;
-        while(arr[len] != '\0'){
-            char simvB = tolower(str[i]); //(ј -> а)
-            if(arr[len] == simvB) //если согл
+        while(arr2[len] != '\0'){
+            //cout<<"num: " << i << " corr: " << (char)tolower(str[i]) << " uncorr: " << (char)(((int)str[i]) + 32) << " num uncorr: "<< str[i] + 32 << endl;// проверка
+            char simvB = (str[i]); //(ј -> а)
+            if(arr2[len] == simvB) //если согл
                 fl = true;
             len += 1;
         }
@@ -91,16 +93,14 @@ int main(){
             if(word.find("...") != string::npos){
                 word.erase(word.find("..."),3);
             }
-            /*if(word.find("...") != string::npos){
-                word.erase(word.find("..."),3);
-            }*/
-            if(znaki.find(word[0]) != string::npos){
-                word.erase(0,1);
+            for (int zero = 0; zero < 2; zero++) {
+                if(znaki.find(word[0]) != string::npos){
+                    word.erase(0,1);
+                }
+                if(znaki.find(word[size(word)-1]) != string::npos){
+                    word.erase(size(word)-1,1);
+                }
             }
-            if(znaki.find(word[size(word)-1]) != string::npos){
-                word.erase(size(word)-1,1);
-            }
-
             bool fl = true;
             for(int j=0;j<word.length();j++){ 
                 if(check_ch.find(word[j]) != string::npos){ //есть ли буква в лишних
@@ -154,19 +154,30 @@ int main(){
     txt.close();
 
     // 1 доп 
-    /*ifstream cod("cod.txt");
+    cout << "\n1 доп" << endl;
+    ifstream cod("cod.txt");
     if (!cod.is_open()) {
         cout << "\ncod.txt not found" << endl;
         return 1;
     }
     else {
         string comb;
-        string num;
-        while (!cod.eof()) {
-            cod >> comb;
-            num = (int)comb[comb.length() - 1];
-            cout << num;
+        char buk;
+        string num_s;
+        int num;
+        string fin;
+        while (!cod.eof()) {//если читаетс€
+            cod >> comb;//comb - 1 слово
+            buk = comb[comb.length() - 1];//buk - слово без последнего символа
+            num_s = comb.substr(0, comb.length() - 1);
+            num = atoi(num_s.c_str());
+            fin += string(num, buk) + " ";//умножение*
         }
-    }*/
+        cout << fin;
+        ofstream out("cod.txt");
+        out << fin;
+        out.close();
+    }
     return 0;
 }
+//сделать доп допа
