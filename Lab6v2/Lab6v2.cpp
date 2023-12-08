@@ -168,6 +168,10 @@ int main(){
         string fin;
         while (!cod.eof()) {//если читается
             cod >> comb;//comb - 1 слово
+            if (comb == "") {
+                cout << "!!!неправильные значения!!!";
+                return 1;
+            }
             buk = comb[comb.length() - 1];//buk - слово без последнего символа
             num_s = comb.substr(0, comb.length() - 1);
             num = atoi(num_s.c_str());
@@ -178,6 +182,8 @@ int main(){
         out << fin;
         out.close();
     }
+    //доп допа
+
     return 0;
 }
 //сделать доп допа
