@@ -49,16 +49,17 @@ int main(){
     // 2 задание
     int N ;
     string check_ch; //буквы проверки
+    bool dopdop = false;//-доп допа-
 
     ifstream in("input.txt");//кол-во слов
     if(!in.is_open()){
-        cout<<"input not found"<<"введите кол-во букв и буквы"<<endl;
+        cout<<"input not found\n"<<"введите кол-во букв и буквы"<<endl;
         cout<<"N =";
         cin>>N;
-        cout<<"буквы: ";
+        cout<<"\nбуквы: ";
         cin>>check_ch;
         if(N >10 || N <1){
-            cout<<"WRONG N";
+            cout<<"\nWRONG N";
             return 1;
         }
     } else { //файл есть
