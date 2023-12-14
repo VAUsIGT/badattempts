@@ -52,6 +52,7 @@ int main(){
     int N ;
     string check_ch; //буквы проверки
     bool dopdop = false;//-доп допа-
+    string iskl;
 
     ifstream in("input.txt");//кол-во слов
     if(!in.is_open()){
@@ -68,6 +69,12 @@ int main(){
         in>>N;
         in>>check_ch;
         int j = 0;
+        in >> iskl;
+        while (iskl[j] != '\0') {
+            iskl[j] = tolower(iskl[j]);// (ј -> а)
+            j++;
+        }
+        j = 0;
         while(check_ch[j] != '\0'){
             check_ch[j] = tolower(check_ch[j]);// (ј -> а)
             j++;
@@ -122,7 +129,10 @@ int main(){
                     fl = false;
                 }
             }
-            if(fl){ //слово подходит
+            if(fl or word==iskl){ //слово подходит
+                if (fl and word == iskl) {
+                    continue;
+                }
                 if(i < N){ //не перешли предел
                     if(end(words) == find(begin(words),end(words),word)){ //нет в массиве -> добавл€ем
                         words[i] = word;
@@ -141,7 +151,7 @@ int main(){
                     }
                     for(int j = 0;j<N;j++){ 
                         if(size(words[j]) > size(word)) //сравнение длин
-                            if(end(words) == find(begin(words),end(words),word)){ //нет в массиве -> добавл€ем
+                            if(end(words) == find(begin(words),end(words),word)){ //нет в массиве -> добавл€ем (пустота = пустота)
                                 words[j] = word;
                                 break;
                         }
